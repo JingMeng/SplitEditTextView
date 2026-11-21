@@ -1,12 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    namespace 'com.al.open'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    compileSdk 34
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -19,6 +23,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    
     }
 }
 
@@ -30,22 +35,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 
-apply plugin: 'com.novoda.bintray-release'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.novoda:bintray-release:0.9.1'
-    }
-}
 
-publish {
-    userOrg = 'keeplearn'
-    groupId = 'com.open.keeplearn'
-    artifactId = 'SplitEditTextView'
-    publishVersion = '1.2.3'
-    desc = 'A Library Of Android UI.'
-    website = 'https://github.com/Chen-keeplearn/SplitEditTextView'
-}
+
+
